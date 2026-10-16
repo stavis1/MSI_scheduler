@@ -1,0 +1,6 @@
+geojson
+numpy
+matplotlib
+shapely
+scipy
+pyinstaller

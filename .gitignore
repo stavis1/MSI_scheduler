@@ -221,3 +221,4 @@ __marimo__/
 
 #my files
 !env/requirements.txt
+!env/build_requirements.txt
