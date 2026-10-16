@@ -153,7 +153,7 @@ activemq-data/
 .env
 .envrc
 .venv
-env/
+env/*
 venv/
 ENV/
 env.bak/
@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+#my files
+!env/requirements.txt
