@@ -117,7 +117,7 @@ def eq_area_slice(region, args):
 
 def split_tiny(region, n):
     rng = np.random.default_rng(1)
-    xdeltas = [2]*(int((region.xmax - region.xmin)/2)-1)
+    xdeltas = [3]*(int((region.xmax - region.xmin)/3)-1)
     new_regions = slices(xdeltas, region)[:-1]
     idxs = rng.choice(range(len(new_regions)), n, replace = False)
     return [new_regions[i] for i in idxs]
@@ -142,7 +142,7 @@ def get_blank(regions, args):
     if args.blank != 'None':
         blank = regions[args.blank]
         blank = get_boundary(blank)
-        blank = split_tiny(blank, 2)
+        blank = split_tiny(blank, 4)
         return blank
     else:
         return None
@@ -178,7 +178,7 @@ def scheduler(samples, QC, blank):
         schedule = tmp
     
     if blank is not None:
-        schedule = [blank.pop()]+schedule+[blank.pop()]
+        schedule = blank[:2]+schedule+blank[2:]
     return schedule
 
 def main(args):
